@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reducer as currencyReducer } from "./features/currency/currencySlice";
+import { reducer as currencyReducer } from "./slices/currency/currencySlice";
 import {currencyApi} from "./api/api" 
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 export const store = configureStore({
     reducer: {
-        currency:currencyReducer,
+        // currency:currencyReducer,
         [currencyApi.reducerPath]: currencyApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
