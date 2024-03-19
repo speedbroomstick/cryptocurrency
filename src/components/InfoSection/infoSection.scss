@@ -1,0 +1,56 @@
+$grey: #616E85;
+section{
+    flex: 1;
+}
+section>header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3rem 3rem 3rem;
+    row-gap: 1rem;
+    margin-bottom: 30px;
+    align-items: center;
+}
+section>header>h2{
+    grid-area: 2/1/3/3;
+    font-size: 2.5rem;
+}
+section>header>.icon{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p{
+        color: $grey;
+        font-size: .8rem;
+    }
+}
+section>header>button:last-child{
+    grid-column: 1/3;
+}
+.back{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid rgb(235, 235, 235);
+    justify-self: end;
+}
+
+.back:hover{
+    cursor: pointer;
+    background-color: rgb(221, 221, 221);
+    color: rgb(57, 57, 57);
+}
+.back:active{
+    transform: scale(.98);
+}
+section>main{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+section>main>.amount{
+    display: flex;
+    justify-content: space-between;
+}
+section>main>.amount>p:first-child{
+    color: $grey;
+}

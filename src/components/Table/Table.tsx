@@ -1,8 +1,26 @@
-import { ITableCurrency } from "../../types/ITable";
 import { Table } from "antd";
 import { columnsData } from "../../data/columnsData";
+import { useCurrency } from "../../hooks/useCurrency";
+import { IParsedCurrency } from "../../types/ICurrency";
 
-export default function TableCurrency({ isLoading,dataSource }: ITableCurrency) {
+export default function TableCurrency() {
+  const { isLoading, data } = useCurrency();
 
-  return <Table loading={isLoading} columns={columnsData} dataSource={dataSource} />;
+  function handleClick(row: IParsedCurrency) {
+    window.location.href = "currencyInfo?id=" + row.id;
+  }
+
+  return (
+    <Table
+      loading={isLoading}
+      columns={columnsData}
+      dataSource={data}
+      pagination={{ position: ["bottomCenter"] }}
+      onRow={(record) => {
+        return {
+          onClick: () => handleClick(record),
+        };
+      }}
+    />
+  );
 }
