@@ -2,6 +2,7 @@ import { RollbackOutlined } from "@ant-design/icons";
 import "./infoSection.scss";
 import AddButton from "../AddButton/AddButton";
 import { IInfoSection } from "../../types/IInfoSection";
+import { handleAddButton } from "../../features/handlAddButton";
 
 export default function InfoSection({ dataCurrency }: IInfoSection) {
   function handleClick() {
@@ -20,7 +21,7 @@ export default function InfoSection({ dataCurrency }: IInfoSection) {
           <RollbackOutlined />
         </button>
         <h2>${dataCurrency.priceUsd}</h2>
-        <AddButton />
+        <AddButton record={dataCurrency} onClick={handleAddButton}/>
       </header>
       <main>
         <DivAmount label="Rank" value={dataCurrency.rank!} />

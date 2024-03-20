@@ -1,0 +1,43 @@
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$maxWidth: $maxWidth - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+.topHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    padding: 2rem;
+    background-color: rgb(250, 250, 250);
+    margin-bottom: 3vh;
+    .currency{
+        display: flex;
+        gap: 20px;
+    }
+}
+.topCoin{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: #616E85;
+    @include adaptiv-font(15, 8);
+}
+.briefcase{
+    display: flex;
+    color: #616E85;
+    grid-column: 3/4;
+    align-items: center;
+    justify-content: end;
+    @include adaptiv-font(15, 8);
+    div{
+        display: flex;
+    }
+    div:hover{
+        cursor: pointer;
+        background-color: rgb(230, 230, 230);
+        transform: scale(1.1);
+    }
+}

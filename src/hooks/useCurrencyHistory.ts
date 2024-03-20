@@ -3,7 +3,6 @@ import { ICurrencyHistory } from "../types/ICurrencyHistory";
 
 export const useCurrencyHistory = (id: string, interval: string) => {
   const {status ,refetch, data } = useGetCurrencyHistoryQuery({ id, interval });
-  console.log(status)
   return {
     status,
     refetch,

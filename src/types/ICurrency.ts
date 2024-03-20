@@ -22,10 +22,10 @@ export interface ICurrency {
 }
 
 export interface IParsedCurrency {
-  id: string;
-  symbol: string;
-  icon: string;
-  priceUsd: number;
-  marketCapUsd: string;
-  changePercent24Hr: string;
+  id?: string;
+  symbol?: string;
+  icon?: string;
+  priceUsd?: number;
+  marketCapUsd?: string;
+  changePercent24Hr?: string;
 }

@@ -2,6 +2,7 @@ import { TableColumnsType } from "antd";
 import { IParsedCurrency } from "../types/ICurrency";
 import { useGetColumnSearchProps } from "../hooks/useGetColumnSearchProps";
 import AddButton from "../components/AddButton/AddButton";
+import { handleAddButton } from "../features/handlAddButton";
 
 const style = {
   display: "flex",
@@ -29,30 +30,31 @@ export const columnsData: TableColumnsType<IParsedCurrency> = [
     dataIndex: "priceUsd",
     key: "priceUsd",
     align: "center",
-    sorter: (a, b) => +a.priceUsd - +b.priceUsd,
+    sorter: (a, b) => +a.priceUsd! - +b.priceUsd!,
   },
   {
     title: "Market Cap",
     dataIndex: "marketCapUsd",
     key: "marketCapUsd",
     align: "center",
-    sorter: (a, b) => +a.marketCapUsd - +b.marketCapUsd,
+    sorter: (a, b) => +a.marketCapUsd! - +b.marketCapUsd!,
   },
   {
     title: "24h %",
     dataIndex: "changePercent24Hr",
     key: "changePercent24Hr",
     align: "center",
-    sorter: (a, b) => +a.changePercent24Hr - +b.changePercent24Hr,
+    sorter: (a, b) => +a.changePercent24Hr! - +b.changePercent24Hr!,
   },
   {
     title: "",
     dataIndex: "addButton",
     key: "addButton",
-    render: () => {
+    fixed: 'right',
+    render: (text,record) => {
       return (
         <div style={style}>
-          <AddButton />
+          <AddButton record={record} onClick={handleAddButton}/>
         </div>
       );
     },

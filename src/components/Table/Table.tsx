@@ -16,6 +16,7 @@ export default function TableCurrency() {
       columns={columnsData}
       dataSource={data}
       pagination={{ position: ["bottomCenter"] }}
+      scroll={{ x: 1000}}
       onRow={(record) => {
         return {
           onClick: () => handleClick(record),
