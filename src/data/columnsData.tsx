@@ -51,7 +51,7 @@ export const columnsData: TableColumnsType<IParsedCurrency> = [
     dataIndex: "addButton",
     key: "addButton",
     fixed: 'right',
-    render: (text,record) => {
+    render: (_text,record) => {
       return (
         <div style={style}>
           <AddButton record={record} onClick={handleAddButton}/>
