@@ -14,7 +14,7 @@ import { addIntoBriefCase } from "./features/addIntoBriefCase";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/cryptocurrency",
     element: (
       <div className="tableContent">
         <TableCurrency />
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/currencyInfo",
+    path: "cryptocurrency/currencyInfo",
     element: <PageInfoCurrency />,
   },
 ]);
