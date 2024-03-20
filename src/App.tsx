@@ -2,7 +2,7 @@ import { ConfigProvider} from "antd";
 import "./App.scss";
 import PageInfoCurrency from "./components/PageInfoCurrency/PageInfoCurrency";
 import TableCurrency from "./components/Table/Table";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { theme } from "./data/themeForAnt";
 import Header from "./components/Header/Header";
 import { useAppSelector } from "./hooks/hooks";
@@ -11,21 +11,6 @@ import { useState } from "react";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
 import ProductItem from "./components/ProductItem/ProductItem";
 import { addIntoBriefCase } from "./features/addIntoBriefCase";
-
-const router = createBrowserRouter([
-  {
-    path: "/cryptocurrency",
-    element: (
-      <div className="tableContent">
-        <TableCurrency />
-      </div>
-    ),
-  },
-  {
-    path: "/cryptocurrency/currencyInfo",
-    element: <PageInfoCurrency />,
-  },
-]);
 
 export default function App() {
   const activeAddModal = useAppSelector((state) => state.activeAddModal);
@@ -66,7 +51,12 @@ export default function App() {
           <h1>No info yet</h1>
         )}
       </ModalWindow>
-      <RouterProvider router={router} />
+      <BrowserRouter basename="/cryptocurrency/">
+        <Routes>
+          <Route path="/" Component={TableCurrency}/>
+          <Route path="/currencyInfo/" Component={PageInfoCurrency} />
+        </Routes>
+      </BrowserRouter>
     </ConfigProvider>
   );
 }
