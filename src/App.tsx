@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "cryptocurrency/currencyInfo",
+    path: "/cryptocurrency/currencyInfo",
     element: <PageInfoCurrency />,
   },
 ]);
