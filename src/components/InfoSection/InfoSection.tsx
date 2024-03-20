@@ -6,7 +6,7 @@ import { handleAddButton } from "../../features/handlAddButton";
 
 export default function InfoSection({ dataCurrency }: IInfoSection) {
   function handleClick() {
-    window.location.href = "/";
+    window.location.href = "/cryptocurrency/";
   }
 
   return (
