@@ -1,3 +1,5 @@
+import { getRightDate } from "../features/getRightDate";
+import { sliceDataByDate } from "../features/sliceDataByDate";
 import { useGetCurrencyHistoryQuery } from "../store/api/api";
 import { ICurrencyHistory } from "../types/ICurrencyHistory";
 
@@ -18,24 +20,4 @@ function parseCurrencyHistory(data: ICurrencyHistory[] | undefined) {
       date: getRightDate(interval.date),
     };
   });
-}
-
-function sliceDataByDate(
-  data: ICurrencyHistory[] | undefined,
-  interval: string
-) {
-  return interval === "h1"
-    ? data?.slice(data.length - 24, data.length)
-    : interval === "m30"
-    ? data?.slice(data.length - 24, data.length)
-    : data?.slice(data.length - 60, data.length);
-}
-
-function getRightDate(date: string | number) {
-  const hour = new Date(date).getHours();
-  const minutes =
-    new Date(date).getMinutes().toString().length === 1
-      ? "0" + new Date(date).getMinutes()
-      : new Date(date).getMinutes();
-  return hour + ":" + minutes;
 }
