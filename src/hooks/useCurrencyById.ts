@@ -2,10 +2,11 @@ import { useGetCurrencyByIdQuery } from "../store/api/api";
 import { ICurrency } from "../types/ICurrency";
 
 export const useCurrencyById = (id: string) => {
-  const { isLoading, data } = useGetCurrencyByIdQuery(id);
+  const { isLoading, isError ,data } = useGetCurrencyByIdQuery(id);
   return {
     isLoadingCurrency: isLoading,
     currencyData: parseCurrencyById(data?.data),
+    isError
   };
 };
 function parseCurrencyById(data: ICurrency | undefined) {

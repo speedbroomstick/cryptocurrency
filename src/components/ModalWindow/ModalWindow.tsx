@@ -1,5 +1,6 @@
 import { Modal } from "antd";
 import "./modalWindow.scss";
+import { IModalWindow } from "../../types/IModalWindow";
 
 export default function ModalWindow({title,open,onOk,onCancel,children,}: IModalWindow) {
     
@@ -8,12 +9,4 @@ export default function ModalWindow({title,open,onOk,onCancel,children,}: IModal
       {children}
     </Modal>
   );
-}
-
-interface IModalWindow {
-  title?: string;
-  open?: boolean;
-  onOk?(): void;
-  onCancel?(): void;
-  children: React.ReactNode;
 }

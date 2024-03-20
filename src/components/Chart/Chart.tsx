@@ -7,6 +7,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { options } from "./options";
@@ -19,20 +20,21 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 export default function Chart({ data }: IChart) {
   const labels = data?.map((price) => price.date);
-
+  const stateChart = data![data!.length-1].priceUsd>data![data!.length-2].priceUsd;
   const dataRow = {
     labels,
     datasets: [
       {
         label: "Price USD",
         data: data?.map((price) => price.priceUsd),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor:  stateChart?"rgba(94, 255, 70,.5)":"rgba(255, 99, 132, 0.5)",
+        backgroundColor: stateChart?"rgba(94, 255, 70,.5)":"rgba(255, 99, 132, 0.5)",
         fill: true,
       },
     ],
