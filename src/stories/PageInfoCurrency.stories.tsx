@@ -12,18 +12,13 @@ const meta: Meta<typeof PageInfoCurrency> = {
         <Story />
       </Provider>
       ),
-    ],
-    parameters: {
-        query: {
-          id: "bitcoin",
-        },
-      },
+    ]
   };
 export default meta;
 type Story = StoryObj<typeof PageInfoCurrency>;
 
-export const FirstStory: Story = {
+export const ErorPage: Story = {
   args: {
 
-},
+  },
 };

@@ -10,10 +10,24 @@ const meta: Meta<typeof CustomButton> = {
 export default meta;
 type Story = StoryObj<typeof CustomButton>;
 
-export const FirstStory: Story = {
+export const LargeButton: Story = {
   args: {
     content:"Click",
     icon:<QqOutlined />,
     size:"large"
+  },
+};
+export const MiddleButton: Story = {
+  args: {
+    content:"Click",
+    icon:<QqOutlined />,
+    size:"middle"
+  },
+};
+export const SmallButton: Story = {
+  args: {
+    content:"Click",
+    icon:<QqOutlined />,
+    size:"small"
   },
 };

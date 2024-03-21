@@ -18,7 +18,7 @@ const meta: Meta<typeof InfoSection> = {
 export default meta;
 type Story = StoryObj<typeof InfoSection>;
 
-export const FirstStory: Story = {
+export const BitcoinStory: Story = {
   args: {
     dataCurrency: {
         icon:"https://assets.coincap.io/assets/icons/btc@2x.png",

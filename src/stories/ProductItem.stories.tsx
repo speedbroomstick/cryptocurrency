@@ -9,7 +9,7 @@ const meta: Meta<typeof ProductItem> = {
 export default meta;
 type Story = StoryObj<typeof ProductItem>;
 
-export const FirstStory: Story = {
+export const BitcoinStory: Story = {
   args: {
     cost:200,
     count:2,
