@@ -24,7 +24,7 @@ test('Searching by symbol', async ({ page }) => {
 
 test('Display the modal window', async ({ page }) => {
   await page.goto('https://speedbroomstick.github.io/cryptocurrency/');
-  await page.getByRole('heading', { name: '0USD + 0.00 (0%)' }).click();
+  await page.getByRole('button', { name: 'wallet 0.00USD +0.00 (0%)' }).click();
   const isVisibleFirstModal = await page.getByText('BriefcaseCancelOK').isVisible();
   await page.getByRole('button', { name: 'Cancel' }).click();
   await page.getByRole('cell', { name: 'AVAX' }).click();
@@ -50,7 +50,7 @@ test('Adding into briefcase and Removing', async ({ page }) => {
   }
 
   await page.getByRole('button', { name: 'Remove' }).click();
-  await page.getByRole('heading', { name: '0USD + 0.00 (0%)' }).click();
+  await page.getByRole('button', { name: 'wallet 0.00USD +0.00 (0%)' }).click();
   const countAfterRemoving = await page.getByLabel('Briefcase').getByRole('img', { name: 'no photo' }).count();
   if(countAfterRemoving !== 0 ){
     throw new Error(`The crypto currency didn't removed from your portfolio!`);
