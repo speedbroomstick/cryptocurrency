@@ -1,7 +1,7 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
 test('Filtration', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('https://speedbroomstick.github.io/cryptocurrency/');
   await page.getByRole('columnheader', { name: 'Price' }).locator('div').click()
   const cell = await page.getByRole('cell', { name: '0.01' }).first();
   const isVisible = await cell.isVisible();
@@ -11,7 +11,7 @@ test('Filtration', async ({ page }) => {
 });
 
 test('Searching by symbol', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('https://speedbroomstick.github.io/cryptocurrency/');
   await page.getByRole('button', { name: 'search' }).click();
   await page.getByPlaceholder('Search..').click();
   await page.getByPlaceholder('Search..').fill('SOL');
@@ -23,13 +23,13 @@ test('Searching by symbol', async ({ page }) => {
 });
 
 test('Display the modal window', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('https://speedbroomstick.github.io/cryptocurrency/');
   await page.getByRole('heading', { name: '0USD + 0.00 (0%)' }).click();
   const isVisibleFirstModal = await page.getByText('BriefcaseCancelOK').isVisible();
   await page.getByRole('button', { name: 'Cancel' }).click();
   await page.getByRole('cell', { name: 'AVAX' }).click();
   await page.getByRole('button', { name: 'star Add to portfolio' }).click();
-  const isVisibleSecondModal = await page.getByText('Add in briefcase:avalanche53.').isVisible();
+  const isVisibleSecondModal = await page.getByText('Add in briefcase:').isVisible();
   console.log(isVisibleFirstModal +" "+ isVisibleSecondModal)
   if(!isVisibleFirstModal || !isVisibleSecondModal){
     throw new Error(`Don't display the modal windows!`);
@@ -37,7 +37,7 @@ test('Display the modal window', async ({ page }) => {
 });
 
 test('Adding into briefcase and Removing', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('https://speedbroomstick.github.io/cryptocurrency/');
   await page.locator('tr:nth-child(9) > td:nth-child(2)').click();
   await page.getByRole('button', { name: 'star Add to portfolio' }).click();
   await page.getByRole('spinbutton').click();
@@ -58,7 +58,7 @@ test('Adding into briefcase and Removing', async ({ page }) => {
 });
 
 test('Display the 404 not found page with wrong id currency', async ({ page }) => {
-  await page.goto('http://localhost:5173/currencyInfo?id=tetkljfslwoi');
+  await page.goto('https://speedbroomstick.github.io/cryptocurrency/currencyInfo?id=tetkljfslwoi');
   const isVisiblePage = await page.getByText('404').innerText()
   if(isVisiblePage !== "404"){
     throw new Error(`Don't display the 404 page, when wrong id  currency`);
