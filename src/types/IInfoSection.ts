@@ -9,5 +9,5 @@ export interface IInfoSection {
     marketCapUsd?: string;
     supply?: string;
     maxSupply?: string;
-  };
+  }|null;
 }

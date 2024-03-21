@@ -6,6 +6,7 @@ import { calculateSumBriefcase } from "../../features/calculateSumBriefcase";
 import { useEffect, useState } from "react";
 import { useCurrency } from "../../hooks/useCurrency";
 import { deleteItem } from "../../features/deleteItem";
+import { updateCurrencyPrice } from "../../features/updateCurrencyPrice";
 
 export default function BriefCase() {
   const { data } = useCurrency();
@@ -35,14 +36,12 @@ export default function BriefCase() {
   return (
     <>
       <div className="briefcase">
-        <div onClick={showModal}>
+        <Button onClick={showModal}>
           <WalletFilled />
-          <h4>
-            {calculateSumBriefcase(items, data!).newSum}USD +{" "}
-            {calculateSumBriefcase(items, data!).difrience} (
-            {calculateSumBriefcase(items, data!).percentage || 0}%)
-          </h4>
-        </div>
+          {calculateSumBriefcase(items, data!).newSum}USD{" "}
+          {calculateSumBriefcase(items, data!).difrience} (
+          {calculateSumBriefcase(items, data!).percentage || 0}%)
+        </Button>
       </div>
       <ModalWindow
         title="Briefcase"
@@ -58,7 +57,7 @@ export default function BriefCase() {
             <ProductItem
               name={item.name}
               icon={item.icon}
-              cost={item.priceUsd}
+              cost={updateCurrencyPrice(data!,item.name!)}
               count={item.count}
             />
             <Button

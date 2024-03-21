@@ -26,14 +26,14 @@ export const columnsData: TableColumnsType<IParsedCurrency> = [
     },
   },
   {
-    title: "Price",
+    title: "Price USD",
     dataIndex: "priceUsd",
     key: "priceUsd",
     align: "center",
     sorter: (a, b) => +a.priceUsd! - +b.priceUsd!,
   },
   {
-    title: "Market Cap",
+    title: "Market Cap USD",
     dataIndex: "marketCapUsd",
     key: "marketCapUsd",
     align: "center",

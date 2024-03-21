@@ -8,12 +8,13 @@ export default function InfoSection({ dataCurrency }: IInfoSection) {
   function handleClick() {
     window.location.href = "/cryptocurrency/";
   }
-
+  
+  if(dataCurrency)
   return (
     <section>
       <header>
         <div className="icon">
-          <img src={dataCurrency.icon} width="32" height="32" alt="" />
+          <img src={dataCurrency.icon} width="32" height="32" alt="no icon" />
           <h3>{dataCurrency.name}</h3>
           <p>{dataCurrency.symbol}</p>
         </div>

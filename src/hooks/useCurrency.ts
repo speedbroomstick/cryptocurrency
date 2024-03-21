@@ -10,7 +10,6 @@ export const useCurrency = () => {
   };
 };
 function parseCurrency(data: ICurrency[] | undefined) {
-  // const numberFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
   return data?.map((data) => {
     return {
       key: data.id,
